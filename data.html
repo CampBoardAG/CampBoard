@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application Form</title>
+    <link rel="stylesheet" href="data-styles.css" />
+    <style>
+      .error-message {
+        color: red;
+        font-size: 0.8em;
+        margin-top: 0.25em;
+      }
+
+      input:invalid, select:invalid, textarea:invalid {
+        border-color: #ff4444;
+      }
+
+      input:valid, select:valid, textarea:valid {
+        border-color: #00C851;
+      }
+
+      .spinner {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid rgba(255,255,255,.3);
+        border-radius: 50%;
+        border-top-color: #fff;
+        animation: spin 1s ease-in-out infinite;
+        margin-right: 8px;
+      }
+      
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+
+  <body>
+    <form id="myForm" action="user.html" method="get" enctype="multipart/form-data">
+      <fieldset>
+        <section class="personel">
+        <legend>Personal Details</legend>
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div>
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age" required min="16" max="100" />
+        </div>
+        <div>
+          <label for="contact-number">Contact Number:</label>
+          <input
+            type="tel"
+            id="contact-number"
+            name="contact-number"
+            required
+            pattern="[0-9]{10}"
+          />
+        </div>
+        <div>
+          <label for="email">Email ID:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div>
+          <label for="course">Course Applying For:</label>
+          <input type="text" id="course" name="course" required />
+        </div>
+        <div>
+          <label for="government-id">Government ID:</label>
+          <select id="government-id" name="government-id" required>
+            <option value="">Select ID</option>
+            <option value="aadhar">Aadhar Card</option>
+            <option value="passport">Passport</option>
+            <option value="voter-id">Voter ID</option>
+          </select>
+        </div>
+        <div>
+          <label for="id-number">ID Number:</label>
+          <input type="text" id="id-number" name="id-number" required />
+        </div>
+        <div>
+          <label for="pincode">Pin Code:</label>
+          <input type="text" id="pincode" name="pincode" required pattern="[0-9]{6}" />
+        </div>
+        <div>
+          <label for="city">City:</label>
+          <input type="text" id="city" name="city" required />
+        </div>
+        <div>
+          <label for="state">State:</label>
+          <input type="text" id="state" name="state" required />
+        </div>
+        <div>
+          <label for="address">Address:</label>
+          <textarea
+            id="address"
+            name="address"
+            rows="4"
+            cols="50"
+            required
+          ></textarea>
+        </div>
+      </section>
+      </fieldset>
+
+      <fieldset>
+        <legend>Education</legend>
+        <div>
+          <label for="board-of-ed">Board of Education:</label>
+          <input type="text" id="board-of-ed" name="board-of-ed" required />
+        </div>
+        <div>
+          <label for="secondary-school">Secondary School Name:</label>
+          <input
+            type="text"
+            id="secondary-school"
+            name="secondary-school"
+            required
+          />
+        </div>
+        <div>
+          <label for="secondary-roll">Secondary Roll Number:</label>
+          <input
+            type="text"
+            id="secondary-roll"
+            name="secondary-roll"
+            required
+          />
+        </div>
+        <div>
+          <label for="secondary-marks">Secondary Percentage Marks:</label>
+          <input
+            type="number"
+            id="secondary-marks"
+            name="secondary-marks"
+            required
+            min="0"
+            max="100"
+            step="0.01"
+          />
+        </div>
+        <div>
+          <label for="senior-secondary-school">Senior Secondary School Name:</label>
+          <input
+            type="text"
+            id="senior-secondary-school"
+            name="senior-secondary-school"
+            required
+          />
+        </div>
+        <div>
+          <label for="senior-subjects">Senior Secondary Subjects:</label>
+          <input
+            type="text"
+            id="senior-subjects"
+            name="senior-subjects"
+            required
+          />
+        </div>
+        <div>
+          <label for="senior-roll">Senior Secondary Roll Number:</label>
+          <input type="text" id="senior-roll" name="senior-roll" required />
+        </div>
+        <div>
+          <label for="senior-marks">Senior Secondary Percentage Marks:</label>
+          <input
+            type="number"
+            id="senior-marks"
+            name="senior-marks"
+            required
+            min="0"
+            max="100"
+            step="0.01"
+          />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Family Details</legend>
+        <div>
+          <label for="father-name">Father's Name:</label>
+          <input type="text" id="father-name" name="father-name" required />
+        </div>
+        <div>
+          <label for="father-contact">Father's Contact Number:</label>
+          <input
+            type="tel"
+            id="father-contact"
+            name="father-contact"
+            required
+            pattern="[0-9]{10}"
+          />
+        </div>
+        <div>
+          <label for="father-email">Father's Email ID:</label>
+          <input type="email" id="father-email" name="father-email" />
+        </div>
+        <div>
+          <label for="father-occupation">Father's Occupation:</label>
+          <input
+            type="text"
+            id="father-occupation"
+            name="father-occupation"
+            required
+          />
+        </div>
+        <div>
+          <label for="mother-name">Mother's Name:</label>
+          <input type="text" id="mother-name" name="mother-name" required />
+        </div>
+        <div>
+          <label for="mother-contact">Mother's Contact Number:</label>
+          <input
+            type="tel"
+            id="mother-contact"
+            name="mother-contact"
+            required
+            pattern="[0-9]{10}"
+          />
+        </div>
+        <div>
+          <label for="mother-email">Mother's Email ID:</label>
+          <input type="email" id="mother-email" name="mother-email" />
+        </div>
+        <div>
+          <label for="mother-occupation">Mother's Occupation:</label>
+          <input
+            type="text"
+            id="mother-occupation"
+            name="mother-occupation"
+            required
+          />
+        </div>
+        <div>
+          <label for="annual-income">Annual Income:</label>
+          <input
+            type="number"
+            id="annual-income"
+            name="annual-income"
+            required
+            min="0"
+          />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Exam Center Preferences</legend>
+        <div>
+          <label for="exam-center-1">Preference 1:</label>
+          <input type="text" id="exam-center-1" name="exam-center-1" required />
+        </div>
+        <div>
+          <label for="exam-center-2">Preference 2:</label>
+          <input type="text" id="exam-center-2" name="exam-center-2" required />
+        </div>
+        <div>
+          <label for="exam-center-3">Preference 3:</label>
+          <input type="text" id="exam-center-3" name="exam-center-3" required />
+        </div>
+        <div>
+          <label for="exam-center-4">Preference 4:</label>
+          <input type="text" id="exam-center-4" name="exam-center-4" required/>
+        </div>
+        <div>
+          <label for="exam-center-5">Preference 5:</label>
+          <input type="text" id="exam-center-5" name="exam-center-5" required />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Upload Documents</legend>
+        <div>
+          <label for="passport-photo">Passport Size Photo:</label>
+          <input
+            type="file"
+            id="passport-photo"
+            name="passport-photo"
+            accept="image/*"
+            required
+          />
+        </div>
+        <div>
+          <label for="signature">Signature:</label>
+          <input
+            type="file"
+            id="signature"
+            name="signature"
+            accept="image/*"
+            required
+          />
+        </div>
+        <div>
+          <label for="10th-marksheet">10th Marksheet:</label>
+          <input
+            type="file"
+            id="10th-marksheet"
+            name="10th-marksheet"
+            accept=".pdf, .jpg, .jpeg, .png"
+            required
+          />
+        </div>
+        <div>
+          <label for="12th-marksheet">12th Marksheet:</label>
+          <input
+            type="file"
+            id="12th-marksheet"
+            name="12th-marksheet"
+            accept=".pdf, .jpg, .jpeg, .png"
+            required
+          />
+        </div>
+        <div>
+          <label for="adhar-copy">Aadhar Copy:</label>
+          <input
+            type="file"
+            id="adhar-copy"
+            name="adhar-copy"
+            accept=".pdf, .jpg, .jpeg, .png"
+            required
+          />
+          
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn btn-primary" id="submitBtn">Submit Application</button>
+    </form>
+
+    <script>
+      document.getElementById('myForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          clearErrors();
+          
+          if(validateForm()) {
+              const submitBtn = document.getElementById('submitBtn');
+              submitBtn.disabled = true;
+              submitBtn.innerHTML = '<span class="spinner"></span> Processing...';
+              this.submit();
+          }
+      });
+
+      function clearErrors() {
+          const errorElements = document.querySelectorAll('.error-message');
+          errorElements.forEach(el => el.remove());
+      }
+
+      function showError(inputElement, message) {
+          const errorElement = document.createElement('div');
+          errorElement.className = 'error-message';
+          errorElement.textContent = message;
+          inputElement.parentNode.insertBefore(errorElement, inputElement.nextSibling);
+          inputElement.focus();
+      }
+
+      function validateForm() {
+          let isValid = true;
+          
+          // Personal Details Validation
+          const name = document.getElementById('name');
+          if (!name.value.trim()) {
+              showError(name, 'Please enter your full name');
+              isValid = false;
+          }
+          
+          const age = document.getElementById('age');
+          if (age.value < 16 || age.value > 100) {
+              showError(age, 'Age must be between 16 and 100');
+              isValid = false;
+          }
+          
+          const contact = document.getElementById('contact-number');
+          if (!/^\d{10}$/.test(contact.value)) {
+              showError(contact, 'Please enter a valid 10-digit phone number');
+              isValid = false;
+          }
+          
+          const email = document.getElementById('email');
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+              showError(email, 'Please enter a valid email address');
+              isValid = false;
+          }
+          
+          const idType = document.getElementById('government-id').value;
+          const idNumber = document.getElementById('id-number');
+          
+          if (idType === 'aadhar' && !/^\d{12}$/.test(idNumber.value)) {
+              showError(idNumber, 'Aadhar number must be 12 digits');
+              isValid = false;
+          } else if (idType === 'passport' && !/^[A-Z][0-9]{7}$/.test(idNumber.value)) {
+              showError(idNumber, 'Passport number format invalid (e.g., A1234567)');
+              isValid = false;
+          } else if (idType === 'voter-id' && !/^[A-Z]{3}[0-9]{7}$/.test(idNumber.value)) {
+              showError(idNumber, 'Voter ID format invalid (e.g., ABC1234567)');
+              isValid = false;
+          }
+          
+          const pincode = document.getElementById('pincode');
+          if (!/^\d{6}$/.test(pincode.value)) {
+              showError(pincode, 'Pin code must be 6 digits');
+              isValid = false;
+          }
+          
+          // Exam Center Validation
+          for (let i = 1; i <= 5; i++) {
+              const center = document.getElementById(`exam-center-${i}`);
+              if (!center.value.trim()) {
+                  showError(center, `Exam center preference ${i} is required`);
+                  isValid = false;
+              }
+          }
+          
+          // File Upload Validation
+          const requiredFiles = [
+              'passport-photo',
+              'signature',
+              '10th-marksheet',
+              '12th-marksheet',
+              'adhar-copy'
+          ];
+          
+          requiredFiles.forEach(id => {
+              const fileInput = document.getElementById(id);
+              if (fileInput.files.length === 0) {
+                  showError(fileInput, 'This file is required');
+                  isValid = false;
+              } else {
+                  const file = fileInput.files[0];
+                  const validImageTypes = ['image/jpeg', 'image/png'];
+                  const validDocTypes = ['application/pdf', ...validImageTypes];
+                  
+                  if (file.size > 2 * 1024 * 1024) {
+                      showError(fileInput, 'File size must be less than 2MB');
+                      isValid = false;
+                  }
+                  
+                  if ((id === 'passport-photo' || id === 'signature') && 
+                      !validImageTypes.includes(file.type)) {
+                      showError(fileInput, 'Only JPEG or PNG images allowed');
+                      isValid = false;
+                  } else if (!validDocTypes.includes(file.type)) {
+                      showError(fileInput, 'Only PDF, JPEG, or PNG files allowed');
+                      isValid = false;
+                  }
+              }
+          });
+          
+          return isValid;
+      }
+    </script>
+  </body>
+</html>

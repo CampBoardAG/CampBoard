@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Details</title>
+    <link rel="stylesheet" href="user.css">
+    <style>
+        .document-image {
+            max-width: 200px;
+            max-height: 200px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+            display: block;
+        }
+        .no-image {
+            color: #999;
+            font-style: italic;
+        }
+        .document-image {
+            max-width: 200px;
+            max-height: 200px;
+            border: 1px solid #ddd;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Application Details</h1>
+
+    <!-- Personal Information -->
+    <div class="detail-container">
+        <h2>Personal Information</h2>
+        <div class="detail-item">
+            <span class="detail-label">Full Name:</span>
+            <span class="detail-value" id="name"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Age:</span>
+            <span class="detail-value" id="age"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Contact Number:</span>
+            <span class="detail-value" id="contact-number"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Email:</span>
+            <span class="detail-value" id="email"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Course:</span>
+            <span class="detail-value" id="course"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">ID-Number:</span>
+            <span class="detail-value" id="id-number"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Pin-Code:</span>
+            <span class="detail-value" id="pincode"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">City:</span>
+            <span class="detail-value" id="city"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">State:</span>
+            <span class="detail-value" id="state"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Address:</span>
+            <span class="detail-value" id="address"></span>
+        </div>
+    </div>
+
+    <!-- Education Details -->
+    <div class="detail-container">
+        <h2>Education Details</h2>
+        <div class="detail-item">
+            <span class="detail-label">Board of Education:</span>
+            <span class="detail-value" id="board-of-ed"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Secondary School:</span>
+            <span class="detail-value" id="secondary-school"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Secondary-Roll-Number</span>
+            <span class="detail-value" id="secondary-roll"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-elabel">Secondary Percentage Mark:</span>
+            <span class="detail-value" id="secondary-marks"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Senior Secondary School:</span>
+            <span class="detail-value" id="senior-secondary-school"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Senior Secondary Subjects</span>
+            <span class="detail-value" id="senior-subjects"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Senior Secondary Roll Number</span>
+            <span class="detail-value" id="senior-roll"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Senior Secondary Percentage Mark:</span>
+            <span class="detail-value" id="senior-marks"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Passport Size Photo:</span>
+            <img class="document-image" id="passport-photo-img" src="" alt="Passport Photo">
+        </div>        
+        <div class="detail-item">
+            <span class="detail-label">Signature:</span>
+            <img class="document-image" id="signature-img" src="" alt="Signature">
+        </div>        
+        <div class="detail-item">
+            <span class="detail-label">10th Marksheet:</span>
+            <img class="document-image" id="10th-marksheet-img" src="" alt="10th Marksheet">
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">12th Marksheet:</span>
+            <img class="document-image" id="12th-marksheet-img" src="" alt="12th Marksheet">
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Aadhar Copy:</span>
+            <img class="document-image" id="adhar-copy-img" src="" alt="Aadhar Copy">
+        </div>
+        
+    </div>
+
+    <!-- Family Details -->
+    <div class="detail-container">
+        <h2>Family Details</h2>
+        <div class="detail-item">
+            <span class="detail-label">Father's Name:</span>
+            <span class="detail-value" id="father-name"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Father's Contact:</span>
+            <span class="detail-value" id="father-contact"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Father's Email Id:</span>
+            <span class="detail-value" id="father-email"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Father's Occupation:</span>
+            <span class="detail-value" id="father-occupation"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Mother's Name:</span>
+            <span class="detail-value" id="mother-name"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Mother's Contact:</span>
+            <span class="detail-value" id="mother-contact"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Mother's Email Id:</span>
+            <span class="detail-value" id="mother-email"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Mother's Occupation:</span>
+            <span class="detail-value" id="mother-occupation"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Annual Income:</span>
+            <span class="detail-value" id="annual-income"></span>
+        </div>
+    </div>
+
+    <!-- Exam Center Preferences -->
+    <div class="detail-container">
+        <h2>Exam Center Preferences</h2>
+        <div class="detail-item">
+            <span class="detail-label">First Preference:</span>
+            <span class="detail-value" id="exam-center-1"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Second Preference:</span>
+            <span class="detail-value" id="exam-center-2"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Third Preference:</span>
+            <span class="detail-value" id="exam-center-3"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Fourth Preference:</span>
+            <span class="detail-value" id="exam-center-4"></span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Fifth Preference:</span>
+            <span class="detail-value" id="exam-center-5"></span>
+        </div>
+    </div>
+
+    <!-- Exit Button -->
+    <h6><a href="/index.html" class="back-btn"><h6>Exit</h6></a></h6>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch application data from server
+            fetch('/api/applications/json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.error) {
+                        console.error(data.error);
+                        return;
+                    }
+    
+                    // Get the most recent application
+                    const application = data.applications[data.applications.length - 1];
+                    
+                    // Populate all text fields
+                    const fields = [
+                        {id: 'name', key: 'name'},
+                        {id: 'age', key: 'age'},
+                        {id: 'contact-number', key: 'contact_number'},
+                        {id: 'email', key: 'email'},
+                        {id: 'course', key: 'course'},
+                        {id: 'id-number', key: 'id_number'},
+                        {id: 'pincode', key: 'pincode'},
+                        {id: 'city', key: 'city'},
+                        {id: 'state', key: 'state'},
+                        {id: 'address', key: 'address'},
+                        {id: 'board-of-ed', key: 'board_of_education'},
+                        {id: 'secondary-school', key: 'secondary_school'},
+                        {id: 'secondary-roll', key: 'secondary_roll'},
+                        {id: 'secondary-marks', key: 'secondary_marks'},
+                        {id: 'senior-secondary-school', key: 'senior_secondary_school'},
+                        {id: 'senior-subjects', key: 'senior_subjects'},
+                        {id: 'senior-roll', key: 'senior_roll'},
+                        {id: 'senior-marks', key: 'senior_marks'},
+                        {id: 'father-name', key: 'father_name'},
+                        {id: 'father-contact', key: 'father_contact'},
+                        {id: 'father-email', key: 'father_email'},
+                        {id: 'father-occupation', key: 'father_occupation'},
+                        {id: 'mother-name', key: 'mother_name'},
+                        {id: 'mother-contact', key: 'mother_contact'},
+                        {id: 'mother-email', key: 'mother_email'},
+                        {id: 'mother-occupation', key: 'mother_occupation'},
+                        {id: 'annual-income', key: 'annual_income'},
+                        {id: 'exam-center-1', key: 'exam_center_1'},
+                        {id: 'exam-center-2', key: 'exam_center_2'},
+                        {id: 'exam-center-3', key: 'exam_center_3'},
+                        {id: 'exam-center-4', key: 'exam_center_4'},
+                        {id: 'exam-center-5', key: 'exam_center_5'}
+                    ];
+    
+                    fields.forEach(field => {
+                        const element = document.getElementById(field.id);
+                        if (element && application[field.key]) {
+                            element.textContent = application[field.key];
+                        } else if (element) {
+                            element.textContent = 'Not provided';
+                        }
+                    });
+    
+                    // Load images
+                    const images = [
+                        {id: 'passport-photo-img', key: 'passport_photo'},
+                        {id: 'signature-img', key: 'signature'},
+                        {id: '10th-marksheet-img', key: 'marksheet_10th'},
+                        {id: '12th-marksheet-img', key: 'marksheet_12th'},
+                        {id: 'adhar-copy-img', key: 'id_proof'}
+                    ];
+    
+                    images.forEach(img => {
+                        const element = document.getElementById(img.id);
+                        if (element && application[img.key]) {
+                            element.src = `/uploads/${application[img.key]}`;
+                            element.onerror = function() {
+                                this.style.display = 'none';
+                                const errorMsg = document.createElement('span');
+                                errorMsg.className = 'no-image';
+                                errorMsg.textContent = 'Image not available';
+                                this.parentNode.appendChild(errorMsg);
+                            };
+                        } else if (element) {
+                            element.style.display = 'none';
+                            const noImage = document.createElement('span');
+                            noImage.className = 'no-image';
+                            noImage.textContent = 'Not provided';
+                            element.parentNode.appendChild(noImage);
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching application data:', error);
+                    // Set all fields to "Not available" or handle error
+                    document.querySelectorAll('.detail-value').forEach(el => {
+                        el.textContent = 'Not available';
+                    });
+                });
+        });
+    </script>
+
+</body>
+</html>

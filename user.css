@@ -1,0 +1,172 @@
+/* user.css - Dynamic Application Details Styles */
+:root {
+    --primary-color: #fcfcfc;
+    --primary-hover: #ffffff;
+    --secondary-color: #eef1f4;
+    --text-color: #eff2f6;
+    --light-bg: #f9f9f9;
+    --border-color: #e0e0e0;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+  }
+  h6{
+    color:black;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    color: var(--text-color);
+    background-color: #071b38;
+  }
+  
+  h1 {
+    color: var(--secondary-color);
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 12px;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    text-align: center;
+    position: relative;
+  }
+  
+  h1::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background-color: var(--primary-color);
+  }
+  
+  h2 {
+    color: var(--primary-color);
+    margin-top: 30px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border-color);
+    font-size: 1.5rem;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .detail-container {
+    background-color: rgb(59, 146, 177);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 4px solid var(--primary-color);
+  }
+  
+  .detail-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .detail-item {
+    margin: 15px 0;
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    transition: var(--transition);
+  }
+  
+  .detail-item:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+    border-radius: 4px;
+  }
+  
+  .detail-label {
+    font-weight: 600;
+    color: var(--secondary-color);
+    width: 220px;
+    padding-right: 20px;
+    position: relative;
+  }
+  
+  .detail-label::after {
+    content: ':';
+    position: absolute;
+    right: 10px;
+  }
+  
+  .detail-value {
+    color: var(--text-color);
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .back-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-top: 30px;
+    font-weight: 600;
+    transition: var(--transition);
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: var(--shadow);
+  }
+  
+  .back-btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    body {
+      padding: 15px;
+    }
+  
+    .detail-container {
+      padding: 20px;
+    }
+  
+    .detail-item {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px 0;
+    }
+  
+    .detail-label {
+      width: 100%;
+      padding-right: 0;
+      margin-bottom: 5px;
+    }
+  
+    .detail-label::after {
+      content: '';
+    }
+  
+    .detail-value {
+      width: 100%;
+      padding-left: 15px;
+    }
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .detail-container {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .detail-container:nth-child(2) { animation-delay: 0.1s; }
+  .detail-container:nth-child(3) { animation-delay: 0.2s; }
+  .detail-container:nth-child(4) { animation-delay: 0.3s; }

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">-->
+    <link rel="stylesheet" href="dashboard.css" />
+    
+  </head>
+  <body>
+    <div class="dashboard">
+      <header>
+        <h1>List of Colleges</h1>
+        <div class="profile-sign">
+          <span class="username"
+            ><!--<a href="/frontend/profile.html">Name</a>--></span
+          >
+          <span class="username"><a href="index.html">Home</a></span>
+        </div>
+      </header>
+      <main>
+        <section class="data-table">
+          <h2>List of Engineering Colleges</h2>
+          <table id="userTable">
+            <thead>
+              <tr>
+                <th>COLLEGE NAME</th>
+                <th>NIRF RANK</th>
+                <th>DATE OF REGISTRATION START</th>
+                <th>DATE OF REGISTRATION END</th>
+                <th>DATE OF EXAM START</th>
+                <th>DATE OF EXAM END</th>
+                <th>DATE OF RESULT</th>
+                <th>Exam Fees</th>
+                <th>Seat Booking Fees</th>
+                <th>Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>BITS</td>
+                <td>20</td>
+                <td>21 Jan</td>
+                <td>18 Apr</td>
+                <td>22 jun</td>
+                <td>26 jun</td>
+                <td>15 aug</td>
+                <td>2500</td>
+                <td>50000</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>VIT</td>
+                <td>11</td>
+                <td>4 Nov</td>
+                <td>31 mar</td>
+                <td>20 apr</td>
+                <td>27 apr</td>
+                <td>30 apr</td>
+                <td>1350</td>
+                <td>1,00,000</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>SRM</td>
+                <td>13</td>
+                <td>12 Nov</td>
+                <td>30 Jun</td>
+                <td>22 Apr</td>
+                <td>5 Jul</td>
+                <td>10 Jul</td>
+                <td>1200</td>
+                <td>10000</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>ANNA</td>
+                <td>14</td>
+                <td>16 apr</td>
+                <td>15 may</td>
+                <td>16 jun</td>
+                <td></td>
+                <td>25 jun</td>
+                <td>2000</td>
+                <td>5000</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>AMRITA</td>
+                <td>23</td>
+                <td>28 apr</td>
+                <td>2 may</td>
+                <td>7 may</td>
+                <td>11may</td>
+                <td>20 may</td>
+                <td>1000</td>
+                <td>5000</td>
+                <td></td>
+              </tr>
+              <!--
+              <tr>
+                <td>THAPAR</td>
+                <td>29</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>1500</td>
+                <td>25000</td>
+                <td></td>
+              </tr>
+            -->
+              <tr>
+                <td>NEWTON</td>
+                <td>45</td>
+                <td>1 jan</td>
+                <td>28 mar</td>
+                <td>26 Mar</td>
+                <td>25 Apr</td>
+                <td>1 may</td>
+                <td>1000</td>
+                <td>10000</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>SCALAR</td>
+                <td>46</td>
+                <td>12 feb</td>
+                <td>14 mar</td>
+                <td>16 mar</td>
+                <td></td>
+                <td>18 mar</td>
+                <td>1200</td>
+                <td>10000</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>SHIKSHA-O-ANUSANDHAN</td>
+                <td>26</td>
+                <td>1 dec</td>
+                <td>1 apr</td>
+                <td>15 apr</td>
+                <td></td>
+                <td>1 may</td>
+                <td>0</td>
+                <td>0</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>UPES</td>
+                <td>42</td>
+                <td>3 sep</td>
+                <td>25 apr</td>
+                <td>15 may</td>
+                <td></td>
+                <td>30 may</td>
+                <td>1200</td>
+                <td>10000</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CU</td>
+                <td>32</td>
+                <td>1 nov</td>
+                <td>3 mar</td>
+                <td>9 mar</td>
+                <td>20 mar</td>
+                <td>same</td>
+                <td>1000</td>
+                <td>10000</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CHITKARA</td>
+                <td>94</td>
+                <td>24 dec</td>
+                <td>12 mar</td>
+                <td>23 mar</td>
+                <td></td>
+                <td>12 apr</td>
+                <td>2500</td>
+                <td>15000</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>LPU</td>
+                <td>50</td>
+                <td>26 jan</td>
+                <td>10 mar</td>
+                <td>15 feb</td>
+                <td>31 mar</td>
+                <td>15 apr</td>
+                <td>1000</td>
+                <td>10000</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>MANIPAL</td>
+                <td>56</td>
+                <td>15 oct</td>
+                <td>15 mar</td>
+                <td>18 apr</td>
+                <td>19 apr</td>
+                <td>30 apr</td>
+                <td>1200</td>
+                <td>10000</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>GRAPHIC ERA</td>
+                <td>52</td>
+                <td>12 mar</td>
+                <td>15 jun</td>
+                <td>10 jul</td>
+                <td>15 jul</td>
+                <td>1 aug</td>
+                <td>1000</td>
+                <td>5000</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>PSG</td>
+                <td>67</td>
+                <td>1 may</td>
+                <td>10 jun</td>
+                <td>25 jul</td>
+                <td>30 jul</td>
+                <td>10 aug</td>
+                <td>1500</td>
+                <td>50000</td>
+                <td></td>
+              </tr>
+              <!--
+              <tr>
+                <td>RV</td>
+                <td>99</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>MS RAMAIH</td>
+                <td>75</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              -->
+              <tr>
+                <td>KALINGA</td>
+                <td>37</td>
+                <td>10 nov</td>
+                <td>8 apr</td>
+                <td>16 apr</td>
+                <td>20 apr</td>
+                <td>1 may</td>
+                <td>1000</td>
+                <td>20000</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>INDRAPRASTHA</td>
+                <td>85</td>
+                <td>1 feb</td>
+                <td>31 mar</td>
+                <td>2 apr</td>
+                <td>4 apr</td>
+                <td>7 jul</td>
+                <td>1000</td>
+                <td>15000</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>AMITY</td>
+                <td>30</td>
+                <td>24 dec</td>
+                <td>4 feb</td>
+                <td>16 feb</td>
+                <td>18 feb</td>
+                <td>22 feb</td>
+                <td>1000</td>
+                <td>15000</td>
+                <td></td>
+              </tr>
+              <!--
+              <tr>
+                <td>DTU</td>
+                <td>27</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>-->
+              <tr>
+                <td>SRI SIVASUBRAMANIYA</td>
+                <td>46</td>
+                <td>6 may</td>
+                <td>11 jun</td>
+                <td>16 jun</td>
+                <td>20 jun</td>
+                <td>1 jul</td>
+                <td>1000</td>
+                <td>12000</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="dashboard.mjs"></script>
+    <!--<script type="module" src="{{ url_for('static', filename='dashboard.mjs') }}"></script>-->
+  </body>
+</html>

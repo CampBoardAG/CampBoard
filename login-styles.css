@@ -1,0 +1,274 @@
+body {
+    font-family: sans-serif;
+    background-color: #222831;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 80%;
+}
+
+header {
+    background-color: #393e46;
+    padding: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.header-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #eeeeee;
+}
+
+nav a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #eeeeee;
+}
+
+.sign-in-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #00adb5;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+.sign-in-button:hover {
+    background-color: #008b92;
+}
+
+#login-form {
+    background-color: #393e46;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #eeeeee;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #00adb5;
+    border-radius: 4px;
+    background-color: #222831;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+#loginMessage {
+    text-align: center;
+    margin-top: 15px;
+    color: #00adb5;
+}
+
+footer {
+    background-color: #393e46;
+    text-align: center;
+    padding: 20px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+    }
+}
+/*new*/
+/* === General Styles === */
+body {
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(135deg, #0f3460, #16213e); /* Dark blue gradient */
+    color: #e0e0e0; /* Light gray text for contrast */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Ensure the body takes the full height of the viewport */
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+  }
+  
+  /* === Header === */
+  header {
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    color: #ffffff; /* White for header text */
+    margin: 0;
+  }
+  
+  header a {
+    color: #e94560; /* Vibrant pink for links */
+    text-decoration: none;
+    font-size: 1.25rem;
+    transition: color 0.3s ease;
+  }
+  
+  header a:hover {
+    color: #ff6b6b; /* Lighter pink on hover */
+  }
+  
+  /* === Login Form === */
+  .login-section {
+    background: rgba(255, 255, 255, 0.05); /* Semi-transparent white */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px; /* Limit the width of the form */
+    animation: slideIn 1s ease-in-out;
+  }
+  
+  .login-section h2 {
+    font-size: 2rem;
+    color: #ffffff; /* White for section heading */
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .login-section label {
+    font-size: 1rem;
+    color: #e0e0e0; /* Light gray for labels */
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .login-section input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for inputs */
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    color: #ffffff; /* White for input text */
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .login-section input:focus {
+    border-color: #e94560; /* Vibrant pink on focus */
+    box-shadow: 0 0 8px rgba(233, 69, 96, 0.5); /* Pink glow on focus */
+    outline: none;
+  }
+  
+  .login-section button {
+    width: 100%;
+    padding: 0.75rem;
+    background: #e94560; /* Vibrant pink for button */
+    color: #ffffff; /* White for button text */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .login-section button:hover {
+    background: #ff6b6b; /* Lighter pink on hover */
+    transform: translateY(-3px); /* Lift button on hover */
+  }
+  
+  /* === Animations === */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* === Responsive Design === */
+  @media (max-width: 768px) {
+    .login-section {
+      padding: 1.5rem;
+    }
+  
+    header h1 {
+      font-size: 2rem;
+    }
+  
+    .login-section h2 {
+      font-size: 1.75rem;
+    }
+  }
+/* === General Styles === */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    min-height: 100vh; /* Full viewport height */
+  }
+  
+  /* === Container with Gradient Background === */
+  .container {
+    background: linear-gradient(135deg, #0f3460, #16213e); /* Dark blue gradient */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #e0e0e0; /* Light gray text for contrast */
+    max-width: 600px; /* Limit the width of the container */
+    width: 90%; /* Responsive width */
+  }
+  
+  .container h1 {
+    font-size: 2.5rem;
+    color: #ffffff; /* White for heading */
+    margin-bottom: 1rem;
+  }
+  
+  .container p {
+    font-size: 1.25rem;
+    color: #e0e0e0; /* Light gray for text */
+  }

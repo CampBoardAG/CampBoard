@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Test</title>
+    <style>
+        body { font-family: Arial; background: #f5f7fa; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        button { width: 100%; padding: 12px; background: #3498db; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <button id="testButton">TEST BUTTON</button>
+        <div id="testMessage"></div>
+    </div>
+    <script>
+        document.getElementById("testButton").addEventListener("click", function() {
+            document.getElementById("testMessage").textContent = "It works!";
+            console.log("Success!");
+        });
+    </script>
+</body>
+</html>

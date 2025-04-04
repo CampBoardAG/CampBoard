@@ -1,0 +1,1144 @@
+body {
+  font-family: sans-serif;
+  background-color: #222831;
+  color: #ffffff;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: fit-content;
+}
+
+header {
+  background-color: #393e46;
+  padding: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.header-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #eeeeee;
+}
+
+nav a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #eeeeee;
+}
+
+.sign-in-button,
+.light-dark-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #00adb5;
+  color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+.sign-in-button:hover,
+.light-dark-button:hover {
+  background-color: #008b92;
+}
+
+#hero {
+  text-align: center;
+  padding: 50px 0;
+  background-color: #393e46;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+  background-color: #393e46;
+  text-align: center;
+  padding: 20px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+}
+
+h1,
+h2 {
+  color: #eeeeee;
+  text-align: center;
+}
+h3 {
+  color: white;
+  text-emphasis-color: white;
+  text-decoration: white;
+}
+header.scrolled {
+  background-color: rgba(57, 62, 70, 0.9);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  border-radius: 8px;
+  max-block-size: 15%;
+  max-inline-size: 70%;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+select,
+textarea {
+  width: fit-content;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #00adb5;
+  border-radius: 4px;
+  background-color: #222831;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.api-key-banner {
+  background-color: #393e46;
+  color: #eeeeee;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.api-key-banner a {
+  color: #00adb5;
+  text-decoration: none;
+}
+
+.api-key-banner a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: fit-content;
+  }
+}
+.features-grid-a {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  width: fit-content;
+  height: 80vmin;
+  max-width: 600px;
+  max-height: 600px;
+  margin: 50px auto;
+}
+
+.feature-item-a,
+.feature-item-b,
+.feature-item-c,
+.feature-item-d {
+  background-color: rgb(84, 108, 133);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature-item-a img,
+.feature-item-b img,
+.feature-item-c img,
+.feature-item-d img {
+  max-width: 30%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.feature-item-a h3,
+.feature-item-b h3,
+.feature-item-c h3,
+.feature-item-d h3 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.feature-item-a p,
+.feature-item-b p,
+.feature-item-c p,
+.feature-item-d p {
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .features-grid-a {
+    grid-template-columns: 1fr;
+    width: 90vw;
+    height: fit-content;
+  }
+}
+/*
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+*/
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.stats-item {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.stats-item h3 {
+  margin: 0;
+  font-size: 2.5em;
+  color: #333;
+}
+
+.stats-item p {
+  margin: 10px 0 0;
+  color: #666;
+  font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* new */
+/* === General Styles === */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Header Navigation === */
+header {
+  background-color: #2c3e50;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header nav a {
+  color: #ecf0f1;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: #3498db;
+}
+
+/* === Hero Section === */
+.hero {
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  color: #ecf0f1;
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: slideUp 1.5s ease-in-out;
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* === Buttons === */
+.cta-buttons {
+  margin-top: 2rem;
+}
+
+.cta-buttons a {
+  background-color: #3498db;
+  color: #ecf0f1;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 0 0.5rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.cta-buttons a:hover {
+  background-color: #2980b9;
+  transform: translateY(-5px);
+}
+
+/* === Features Section === */
+.features {
+  display: flex;
+  justify-content: space-around;
+  padding: 4rem 2rem;
+  background-color: #ffffff;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background-color: #ecf0f1;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 30%;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 1rem;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* === Footer === */
+footer {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+footer a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* new section 2*/
+/* === General Styles === */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #1a1a2e; /* Dark blue background */
+  color: #e0e0e0; /* Light gray text for contrast */
+  margin: 0;
+  padding: 0;
+}
+
+/* === Header === */
+header {
+  background-color: #16213e; /* Darker blue for header */
+  padding: 1.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #ffffff; /* White for header text */
+  margin: 0;
+  animation: fadeIn 2s ease-in-out;
+}
+
+header p {
+  font-size: 1.25rem;
+  color: #e0e0e0; /* Light gray for description */
+  margin: 1rem auto 0;
+  max-width: 800px;
+  animation: slideUp 1.5s ease-in-out;
+}
+
+/* === Section Container === */
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+/* === 2x2 Grid for Features === */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-template-rows: repeat(2, 1fr); /* 2 rows */
+  gap: 2rem; /* Space between grid items */
+  max-width: 1000px; /* Limit the width of the grid */
+  margin: 0 auto; /* Center the grid */
+  padding: 2rem;
+}
+
+/* === Feature Card === */
+.feature-card {
+  background-color: #16213e; /* Dark blue for cards */
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Strong shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  border: 1px solid #0f3460; /* Slightly lighter border for contrast */
+}
+
+.feature-card:hover {
+  transform: translateY(-10px); /* Lift card on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+  background-color: #0f3460; /* Slightly lighter blue on hover */
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  color: #e94560; /* Vibrant pink for headings */
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #e0e0e0; /* Light gray for text */
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* === Call-to-Action Button === */
+.cta-button {
+  background-color: #e94560; /* Vibrant pink for button */
+  color: #ffffff; /* White text */
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 2rem;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #d1344e; /* Darker pink on hover */
+  transform: translateY(-5px); /* Lift button on hover */
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr; /* Switch to 1 column on smaller screens */
+    grid-template-rows: auto;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+}
+
+/* new section 3*/
+/* === General Styles === */
+body {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #0f3460, #16213e); /* Dark blue gradient */
+  color: #e0e0e0; /* Light gray text for contrast */
+  margin: 0;
+  padding: 0;
+}
+
+/* === Header === */
+header {
+  background: rgba(22, 33, 62, 0.9); /* Semi-transparent dark blue */
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #ffffff; /* White for header text */
+  margin: 0;
+  animation: fadeIn 2s ease-in-out;
+}
+
+header p {
+  font-size: 1.25rem;
+  color: #e0e0e0; /* Light gray for description */
+  margin: 1rem auto 0;
+  max-width: 800px;
+  animation: slideUp 1.5s ease-in-out;
+}
+
+/* === Features Section === */
+.features-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.features-section h2 {
+  font-size: 2rem;
+  color: #ffffff; /* White for section heading */
+  margin-bottom: 2rem;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* === 2x2 Grid for Features === */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-template-rows: repeat(2, 1fr); /* 2 rows */
+  gap: 2rem; /* Space between grid items */
+  max-width: 1000px; /* Limit the width of the grid */
+  margin: 0 auto; /* Center the grid */
+  padding: 2rem;
+}
+
+/* === Feature Card === */
+.feature-card {
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Strong shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for contrast */
+  opacity: 0; /* Initially hidden */
+  animation: slideIn 1s ease-in-out forwards;
+}
+
+.feature-card:nth-child(1) {
+  animation-delay: 0.5s; /* Delay for first card */
+}
+
+.feature-card:nth-child(2) {
+  animation-delay: 1s; /* Delay for second card */
+}
+
+.feature-card:nth-child(3) {
+  animation-delay: 1.5s; /* Delay for third card */
+}
+
+.feature-card:nth-child(4) {
+  animation-delay: 2s; /* Delay for fourth card */
+}
+
+.feature-card:hover {
+  transform: translateY(-10px); /* Lift card on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+  background: rgba(255, 255, 255, 0.2); /* Slightly brighter on hover */
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  color: #e94560; /* Vibrant pink for headings */
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #e0e0e0; /* Light gray for text */
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* === Call-to-Action Button === */
+.cta-button {
+  background-color: #e94560; /* Vibrant pink for button */
+  color: #ffffff; /* White text */
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 2rem;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #d1344e; /* Darker pink on hover */
+  transform: translateY(-5px); /* Lift button on hover */
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr; /* Switch to 1 column on smaller screens */
+    grid-template-rows: auto;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+}
+
+
+/* whhole*/
+/* === General Styles === */
+body {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #0f3460, #16213e); /* Dark blue gradient */
+  color: #e0e0e0; /* Light gray text for contrast */
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* === Header === */
+header {
+  background: rgba(22, 33, 62, 0.9); /* Semi-transparent dark blue */
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 2s ease-in-out;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #ffffff; /* White for header text */
+  margin: 0;
+}
+
+header p {
+  font-size: 1.25rem;
+  color: #e0e0e0; /* Light gray for description */
+  margin: 1rem auto 0;
+  max-width: 800px;
+  animation: slideUp 1.5s ease-in-out;
+}
+
+/* === Features Section === */
+.features-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05); /* Semi-transparent white */
+  margin: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 2s ease-in-out;
+}
+
+.features-section h2 {
+  font-size: 2rem;
+  color: #ffffff; /* White for section heading */
+  margin-bottom: 2rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 2rem; /* Space between grid items */
+  max-width: 1000px; /* Limit the width of the grid */
+  margin: 0 auto; /* Center the grid */
+  padding: 2rem;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for contrast */
+  opacity: 0; /* Initially hidden */
+  animation: slideIn 1s ease-in-out forwards;
+}
+
+.feature-card:nth-child(1) {
+  animation-delay: 0.5s; /* Delay for first card */
+}
+
+.feature-card:nth-child(2) {
+  animation-delay: 1s; /* Delay for second card */
+}
+
+.feature-card:hover {
+  transform: translateY(-10px); /* Lift card on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+  background: rgba(255, 255, 255, 0.2); /* Slightly brighter on hover */
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  color: #e94560; /* Vibrant pink for headings */
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #e0e0e0; /* Light gray for text */
+}
+
+/* === Stats Section === */
+.stats-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05); /* Semi-transparent white */
+  margin: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 2s ease-in-out;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 2rem; /* Space between grid items */
+  max-width: 1000px; /* Limit the width of the grid */
+  margin: 0 auto; /* Center the grid */
+  padding: 2rem;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for contrast */
+  opacity: 0; /* Initially hidden */
+  animation: slideIn 1s ease-in-out forwards;
+}
+
+.stat-card:nth-child(1) {
+  animation-delay: 0.5s; /* Delay for first card */
+}
+
+.stat-card:nth-child(2) {
+  animation-delay: 1s; /* Delay for second card */
+}
+
+.stat-card:nth-child(3) {
+  animation-delay: 1.5s; /* Delay for third card */
+}
+
+.stat-card:hover {
+  transform: translateY(-10px); /* Lift card on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+  background: rgba(255, 255, 255, 0.2); /* Slightly brighter on hover */
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  color: #e94560; /* Vibrant pink for headings */
+  margin-bottom: 1rem;
+}
+
+.stat-card p {
+  font-size: 1rem;
+  color: #e0e0e0; /* Light gray for text */
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* === Call-to-Action Button === */
+.cta-button {
+  background-color: #e94560; /* Vibrant pink for button */
+  color: #ffffff; /* White text */
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 2rem;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #d1344e; /* Darker pink on hover */
+  transform: translateY(-5px); /* Lift button on hover */
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .features-grid, .stats-grid {
+    grid-template-columns: 1fr; /* Switch to 1 column on smaller screens */
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+}
+
+
+/* new */
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Our Stats Section */
+.our-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* Adjust spacing between items */
+}
+
+.our-stats div {
+  background-color: #1E3A8A; /* Navy Blue Background */
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: fit-content; /* Adjust width for uniform size */
+}
+
+/* Features Section */
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+  gap: 20px; /* Space between items */
+  background-color: #F3F4F6; /* Light Gray Background */
+  padding: 40px;
+}
+
+.features div {
+  background-color: #2563EB; /* Blue Background for cards */
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.features div:hover {
+  animation-name: feature-hover-animation;
+  animation-duration: 1s;
+}
+
+/* Animation for Features Section */
+@keyframes feature-hover-animation {
+  from {
+    transform: scale(1);
+    background-color: #2563EB; /* Original Blue */
+    opacity: 1;
+  }
+  
+  to {
+    transform: scale(1.05);
+    background-color: #1D4ED8; /* Darker Blue */
+    opacity: 0.9;
+  }
+}
+
+/* Dynamic Page Background Change Buttons */
+.dynamic-buttons {
+  margin-top: 20px;
+}
+
+.dynamic-buttons button {
+  margin-right: 10px;
+}
+
+
+/* table*/
+/* Features Section */
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+  gap: 20px; /* Space between items */
+  background-color: #0B172A; /* Deep Dark Blue Background */
+  padding: 40px;
+  border-radius: 10px; /* Rounded corners for better aesthetics */
+  width: fit-content(0%); /* Makes the section size fit its content */
+  margin: 0 auto; /* Centers the section horizontally */
+}
+
+/* Features Item Styling */
+.features div {
+  background-color: #1E3A8A; /* Slightly lighter blue for individual cards */
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.features div:hover {
+  animation-name: feature-hover-animation;
+  animation-duration: 0.5s;
+}
+
+/* Animation for Features Section */
+@keyframes feature-hover-animation {
+  from {
+    transform: scale(1);
+    background-color: #1E3A8A; /* Original Blue */
+    opacity: 1;
+  }
+  
+  to {
+    transform: scale(1.05);
+    background-color: #2563EB; /* Lighter Blue on hover */
+    opacity: 0.9;
+  }
+}
+
+/* more*/
+/* General Styling for Stats Section */
+.stats {
+  display: flex; /* Use Flexbox for horizontal alignment */
+  justify-content: center; /* Centers all boxes horizontally */
+  align-items: center; /* Centers all boxes vertically */
+  gap: 40px; /* Adds space between boxes */
+  padding: 20px; /* Adds padding inside the section */
+  background-color: #0B172A; /* Deep dark blue background for the section */
+}
+
+/* Styling for Individual Boxes */
+.stats div {
+  background: linear-gradient(135deg, #004e92, #000428); /* Gradient color for the boxes */
+  color: #FFFFFF; /* White text color for readability */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners for better aesthetics */
+  text-align: center;
+  text-decoration-color: whitesmoke;
+  width: fit-content; /* Fixed width for uniform size */
+  height: 150px; /* Fixed height for uniform size */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+}
+
+/* Hover Animation for Boxes */
+.stats div:hover {
+  transform: translateY(-10px) scale(1.05); /* Moves box up and zooms slightly */
+  transition: transform 0.3s ease-in-out; /* Smooth animation on hover */
+}
+
+/* Text Styling Inside Boxes */
+.stats div h1 {
+  font-size: 24px; /* Larger font size for numbers */
+}
+.stats div h3{
+  color:whitesmoke;
+}
+
+.stats div p {
+  color:gainsboro;
+  font-size: 16px; /* Smaller font size for descriptions */
+}
+
+
+
+.features {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.feature-item {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.feature-item h2 {
+  color:white;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.feature-item p {
+  color: whitesmoke;
+  text-align: justify;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .features-grid-a {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .feature-item {
+    padding: 25px;
+  }
+  
+  .feature-item img {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* Center the last item if odd number */
+@media (max-width: 768px) {
+  .feature-item:last-child:nth-child(odd) {
+    grid-column: 1;
+  }
+}

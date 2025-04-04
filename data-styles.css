@@ -1,0 +1,94 @@
+body {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #010c19, #16213e);
+  color: #e0e0e0;
+  margin: 0;
+  padding: 20px;
+}
+
+/* === Form Container === */
+.form-container {
+  background: rgba(60, 116, 228, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 1200px; /* Increased max-width for horizontal layout */
+}
+
+/* === Horizontal Layout === */
+.form-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-section {
+  flex: 1;
+  min-width: 300px; /* Minimum width for each column */
+}
+
+/* === Fieldset Sections === */
+fieldset {
+  border: 1px solid rgba(4, 26, 31, 0.2);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background: #1a2134;
+  height: 100%; /* Make fieldsets take full height of their container */
+}
+
+/* === Form Inputs === */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #e0e0e0;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(100, 112, 223, 0.2);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* === Submit Button === */
+.submit-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button[type="submit"] {
+  padding: 12px 24px;
+  background: #00adb5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+  background: #008b92;
+}
+
+/* === File Input Styling === */
+input[type="file"] {
+  padding: 0.5rem;
+  background: transparent;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .form-sections {
+    flex-direction: column;
+  }
+  
+  .form-section {
+    min-width: 100%;
+  }
+}

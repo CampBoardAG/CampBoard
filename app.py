@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, url_for, flash, send_from_directory, jsonify
+from flask import jsonify, Flask, render_template, request, redirect, session, url_for, flash, send_from_directory, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from pymongo import MongoClient
@@ -7,6 +7,8 @@ from datetime import datetime
 import os
 from functools import wraps
 from app import db, User, bcrypt
+import sqlite3
+import hashlib
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
@@ -598,8 +600,6 @@ def login_page():
     # Render login.html with error if present
     return "Login page"  # In real app, render_template('login.html', error=error)
 
-from flask import jsonify
-
 @app.route("/get_application_data")
 def get_application_data():
     try:
@@ -716,6 +716,364 @@ def check_session():
                 'username': user.username
             })
     return jsonify({'valid': False}), 401
+
+@app.route('/')
+def home():
+    return redirect(url_for('login'))
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        # Handle login form submission
+        username = request.form.get('username')
+        password = request.form.get('password')
+        
+        # Check if user exists and password matches
+        if username in users and users[username]['password'] == password:
+            # Successful login - redirect to user page
+            return redirect(url_for('user_page', username=username))
+        else:
+            # Failed login - show error
+            return render_template('login.html', error="Invalid username or password")
+    
+    # GET request - show login form
+    return render_template('login.html')
+
+@app.route('/user1.html')
+def user_page():
+    username = request.args.get('username')
+    if username in users:
+        return f"Welcome, {users[username]['name']}!"
+    return redirect(url_for('login'))
+
+@app.route('/handleLogin', methods=['POST'])
+def handle_login():
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+    
+    # Check credentials
+    if username in users and users[username]['password'] == password:
+        return jsonify({'success': True, 'redirect': url_for('user_page', username=username)})
+    else:
+        return jsonify({'success': False, 'message': 'Invalid username or password'})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+app = Flask(__name__)
+DATABASE = 'users.db'
+
+# Initialize database
+def init_db():
+    with sqlite3.connect(DATABASE) as conn:
+        cursor = conn.cursor()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                username TEXT UNIQUE NOT NULL,
+                email TEXT UNIQUE NOT NULL,
+                password TEXT NOT NULL
+            )
+        ''')
+        conn.commit()
+
+# Password hashing
+def hash_password(password):
+    return hashlib.sha256(password.encode()).hexdigest()
+
+@app.route('/')
+def home():
+    return redirect(url_for('login'))
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        
+        with sqlite3.connect(DATABASE) as conn:
+            cursor = conn.cursor()
+            cursor.execute('SELECT * FROM users WHERE username = ? AND password = ?', 
+                         (username, hash_password(password)))
+            user = cursor.fetchone()
+        
+        if user:
+            return redirect(url_for('user_page', username=username))
+        else:
+            return render_template('login.html', error="Invalid username or password")
+    
+    return render_template('login.html')
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+        confirm_password = request.form['confirmPassword']
+        
+        # Basic validation
+        if password != confirm_password:
+            return jsonify({'success': False, 'message': 'Passwords do not match'})
+        
+        if len(password) < 8 or not any(char.isdigit() for char in password):
+            return jsonify({'success': False, 'message': 'Password must be at least 8 characters with at least one number'})
+        
+        try:
+            with sqlite3.connect(DATABASE) as conn:
+                cursor = conn.cursor()
+                cursor.execute('INSERT INTO users (username, email, password) VALUES (?, ?, ?)',
+                             (username, email, hash_password(password)))
+                conn.commit()
+            
+            return jsonify({'success': True, 'redirect': url_for('login')})
+        except sqlite3.IntegrityError as e:
+            if 'username' in str(e):
+                return jsonify({'success': False, 'message': 'Username already exists'})
+            elif 'email' in str(e):
+                return jsonify({'success': False, 'message': 'Email already exists'})
+    
+    return render_template('signup.html')
+
+@app.route('/handleSignup', methods=['POST'])
+def handle_signup():
+    data = request.get_json()
+    return signup()  # Reuse the same logic
+
+@app.route('/user1.html')
+def user_page():
+    username = request.args.get('username')
+    return f"Welcome, {username}!"
+
+if __name__ == '__main__':
+    init_db()
+    app.run(debug=True)
+
+app = Flask(__name__)
+DATABASE = 'users.db'
+
+# Initialize database with error handling
+def init_db():
+    try:
+        # Create the database directory if it doesn't exist
+        os.makedirs('instance', exist_ok=True)
+        
+        with sqlite3.connect(DATABASE) as conn:
+            cursor = conn.cursor()
+            # Check if table exists
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='users'")
+            table_exists = cursor.fetchone()
+            
+            if not table_exists:
+                cursor.execute('''
+                    CREATE TABLE users (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        username TEXT UNIQUE NOT NULL,
+                        email TEXT UNIQUE NOT NULL,
+                        password TEXT NOT NULL,
+                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    )
+                ''')
+                # Add a test user for demonstration
+                cursor.execute('''
+                    INSERT INTO users (username, email, password)
+                    VALUES (?, ?, ?)
+                ''', ('testuser', 'test@example.com', hash_password('test123')))
+                conn.commit()
+                print("Database and table created successfully with test user")
+            else:
+                print("Database already exists")
+    except Exception as e:
+        print(f"Error initializing database: {str(e)}")
+        raise
+
+# Password hashing
+def hash_password(password):
+    return hashlib.sha256(password.encode()).hexdigest()
+
+@app.before_first_request
+def before_first_request():
+    init_db()
+
+@app.route('/')
+def home():
+    return redirect(url_for('login'))
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        
+        try:
+            with sqlite3.connect(DATABASE) as conn:
+                cursor = conn.cursor()
+                cursor.execute('SELECT * FROM users WHERE username = ? AND password = ?', 
+                             (username, hash_password(password)))
+                user = cursor.fetchone()
+            
+            if user:
+                return redirect(url_for('user_page', username=username))
+            else:
+                return render_template('login.html', error="Invalid username or password")
+        except sqlite3.Error as e:
+            print(f"Database error: {str(e)}")
+            return render_template('login.html', error="Database error occurred")
+    
+    return render_template('login.html')
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'GET':
+        return render_template('signup.html')
+    
+    if request.method == 'POST':
+        username = request.form.get('username')
+        email = request.form.get('email')
+        password = request.form.get('password')
+        confirm_password = request.form.get('confirmPassword')
+        
+        # Basic validation
+        if not all([username, email, password, confirm_password]):
+            return jsonify({'success': False, 'message': 'All fields are required'})
+        
+        if password != confirm_password:
+            return jsonify({'success': False, 'message': 'Passwords do not match'})
+        
+        if len(password) < 8 or not any(char.isdigit() for char in password):
+            return jsonify({'success': False, 'message': 'Password must be at least 8 characters with at least one number'})
+        
+        try:
+            with sqlite3.connect(DATABASE) as conn:
+                cursor = conn.cursor()
+                cursor.execute('INSERT INTO users (username, email, password) VALUES (?, ?, ?)',
+                             (username, email, hash_password(password)))
+                conn.commit()
+            
+            return jsonify({'success': True, 'redirect': url_for('login')})
+        except sqlite3.IntegrityError as e:
+            if 'username' in str(e):
+                return jsonify({'success': False, 'message': 'Username already exists'})
+            elif 'email' in str(e):
+                return jsonify({'success': False, 'message': 'Email already exists'})
+            else:
+                return jsonify({'success': False, 'message': 'Database error occurred'})
+        except Exception as e:
+            print(f"Error during signup: {str(e)}")
+            return jsonify({'success': False, 'message': 'An error occurred during signup'})
+
+@app.route('/handleSignup', methods=['POST'])
+def handle_signup():
+    data = request.get_json()
+    return signup()  # Reuse the same logic
+
+@app.route('/user1.html')
+def user_page():
+    username = request.args.get('username')
+    return f"Welcome, {username}!"
+
+if __name__ == '__main__':
+    # Ensure database is initialized before running
+    init_db()
+    app.run(debug=True, host='0.0.0.0', port=5000)
+
+app = Flask(__name__)
+app.secret_key = 'your_secret_key_here'  # Needed for session management
+DATABASE = 'instance/users.db'
+
+# Login required decorator
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'username' not in session:
+            return redirect(url_for('login'))
+        return f(*args, **kwargs)
+    return decorated_function
+
+# Initialize database
+def init_db():
+    os.makedirs('instance', exist_ok=True)
+    with sqlite3.connect(DATABASE) as conn:
+        cursor = conn.cursor()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                username TEXT UNIQUE NOT NULL,
+                email TEXT UNIQUE NOT NULL,
+                password TEXT NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        ''')
+        conn.commit()
+
+def hash_password(password):
+    return hashlib.sha256(password.encode()).hexdigest()
+
+@app.before_first_request
+def initialize():
+    init_db()
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+        
+        with sqlite3.connect(DATABASE) as conn:
+            cursor = conn.cursor()
+            cursor.execute('SELECT * FROM users WHERE email = ?', (email,))
+            user = cursor.fetchone()
+        
+        if user and user[3] == hash_password(password):  # Check hashed password
+            session['username'] = user[1]  # Store username in session
+            session['email'] = user[2]     # Store email in session
+            return jsonify({'success': True, 'redirect': url_for('user_page')})
+        else:
+            return jsonify({'success': False, 'message': 'Invalid email or password'})
+    
+    return render_template('login.html')
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        email = request.form.get('email')
+        password = request.form.get('password')
+        confirm_password = request.form.get('confirmPassword')
+        
+        # Validation
+        if password != confirm_password:
+            return jsonify({'success': False, 'message': 'Passwords do not match'})
+        
+        try:
+            hashed_pw = hash_password(password)
+            with sqlite3.connect(DATABASE) as conn:
+                cursor = conn.cursor()
+                cursor.execute('''
+                    INSERT INTO users (username, email, password)
+                    VALUES (?, ?, ?)
+                ''', (username, email, hashed_pw))
+                conn.commit()
+            
+            return jsonify({'success': True, 'message': 'Registration successful!', 'redirect': url_for('login')})
+        except sqlite3.IntegrityError as e:
+            if 'email' in str(e):
+                return jsonify({'success': False, 'message': 'Email already exists'})
+            elif 'username' in str(e):
+                return jsonify({'success': False, 'message': 'Username already exists'})
+    
+    return render_template('signup.html')
+
+@app.route('/user')
+@login_required
+def user_page():
+    return render_template('user.html', username=session['username'], email=session['email'])
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(debug=True)

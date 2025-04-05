@@ -28,71 +28,19 @@
   <body>
     <section id="signup-form">
       <h2>Sign Up</h2>
-      <form id="signupForm" action="/data.html" method="get">
+      <!-- Remove the JavaScript event listener and let the form submit normally -->
+      <form id="signupForm" action="/web/data.html" method="GET">
         <input type="text" id="username" name="username" placeholder="Username" required />
         <input type="email" id="email" name="email" placeholder="Email" required />
-        <input type="password" id="password" name="password" placeholder="Password" required />
+        <input type="password" id="password" name="password" placeholder="Password" required 
+               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" />
         <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required />
         <button type="submit" id="submitBtn" class="sign-up-button">Sign Up</button>
       </form>
       <p id="signupMessage"></p>
     </section>
 
-    <script>
-      document.getElementById('signupForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        clearErrors();
-        
-        if(validateForm()) {
-          const submitBtn = document.getElementById('submitBtn');
-          submitBtn.disabled = true;
-          submitBtn.innerHTML = '<span class="spinner"></span> Processing...';
-          this.submit();
-        }
-      });
-
-      function clearErrors() {
-        const errorElements = document.querySelectorAll('.error-message');
-        errorElements.forEach(el => el.remove());
-      }
-
-      function showError(inputElement, message) {
-        const errorElement = document.createElement('div');
-        errorElement.className = 'error-message';
-        errorElement.textContent = message;
-        inputElement.parentNode.insertBefore(errorElement, inputElement.nextSibling);
-        inputElement.focus();
-      }
-
-      function validateForm() {
-        let isValid = true;
-        
-        const username = document.getElementById('username');
-        if (!username.value.trim()) {
-          showError(username, 'Please enter a username');
-          isValid = false;
-        }
-        
-        const email = document.getElementById('email');
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-          showError(email, 'Please enter a valid email address');
-          isValid = false;
-        }
-        
-        const password = document.getElementById('password');
-        if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password.value)) {
-          showError(password, 'Password must be at least 8 characters long and include both letters and numbers');
-          isValid = false;
-        }
-        
-        const confirmPassword = document.getElementById('confirmPassword');
-        if (password.value !== confirmPassword.value) {
-          showError(confirmPassword, 'Passwords do not match');
-          isValid = false;
-        }
-        
-        return isValid;
-      }
-    </script>
+    <script type="module" src="./signup-script.mjs"></script>
   </body>
 </html>

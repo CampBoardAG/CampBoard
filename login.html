@@ -90,17 +90,6 @@
             <a href="#">Sign Up</a>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            storedUsers = JSON.parse(localStorage.getItem('storedUsers')) || [];
-            
-            document.getElementById('login-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                handleLogin();
-            });
-            document.getElementById('login-email').addEventListener('blur', validateLoginEmail);
-            document.getElementById('login-password').addEventListener('blur', validateLoginPassword);
-        });
-    </script>
+    <script type="module" src="./login-script.mjs"></script>
 </body>
 </html>

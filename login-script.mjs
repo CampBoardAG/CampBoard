@@ -1,35 +1,47 @@
-document.getElementById("loginForm").addEventListener("submit", function(e) {
+// login.mjs
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-  const message = document.getElementById("loginMessage");
-
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+  const messageElement = document.getElementById('loginMessage');
+  
   // Clear previous messages
-  message.textContent = "";
-  message.style.color = "";
-
-  // Simple validation
-  if (!email || !password) {
-      showError("Please fill in all fields", message);
+  messageElement.textContent = '';
+  messageElement.className = '';
+  
+  // Basic validation
+  if (!username || !password) {
+      showMessage('Please enter both username and password', 'error');
       return;
   }
-
-  // Mock authentication
-  if (email === "user@example.com" && password === "password123") {
-      message.textContent = "Login successful! Redirecting...";
-      message.style.color = "green";
+  
+  try {
+      const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, password })
+      });
       
-      // REDIRECT CODE (100% working)
-      setTimeout(() => {
-          window.location.href = "dashboard.html"; // Make sure this file exists
-      }, 1500); // 1.5 second delay to show message
-  } else {
-      showError("Invalid email or password", message);
+      const data = await response.json();
+      
+      if (!response.ok) {
+          throw new Error(data.message || 'Login failed');
+      }
+      
+      showMessage('Login successful!', 'success');
+      setTimeout(() => window.location.href = '/web/user1.html', 1500);
+      
+  } catch (error) {
+      showMessage(error.message, 'error');
+      console.error('Login error:', error);
   }
 });
 
-function showError(text, element) {
+function showMessage(text, type) {
+  const element = document.getElementById('loginMessage');
   element.textContent = text;
-  element.style.color = "red";
+  element.className = type;
 }
